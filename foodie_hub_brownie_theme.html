@@ -1,137 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#171717">
-  <title>Foodie Hub | Brownie & Cake Specials</title>
-  <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    :root{--dark:#171717;--orange:#ff6b35;--cream:#fff8f1;--muted:#777}
-    body{font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--dark);line-height:1.5}
-    a{text-decoration:none;color:inherit}
-    header{background:#171717;color:white;padding:17px 7%;display:flex;align-items:center;justify-content:space-between;gap:18px;position:sticky;top:0;z-index:5}
-    .logo{font-size:1.5rem;font-weight:900;letter-spacing:-1px}.logo span{color:var(--orange)}
-    nav{display:flex;gap:24px;font-size:.95rem}nav a:hover{color:var(--orange)}
-    .hero{padding:72px 7%;display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:35px;background:linear-gradient(120deg,#fff8f1,#ffe6d8)}
-    .eyebrow{color:var(--orange);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:.8rem}
-    h1{font-size:clamp(2.6rem,6vw,4.8rem);line-height:1.02;margin:14px 0}
-    h1 span{color:var(--orange)}.hero p{color:#555;max-width:510px;margin-bottom:25px}
-    .btn{display:inline-block;border:0;border-radius:999px;background:var(--orange);color:white;padding:13px 23px;font-weight:800;cursor:pointer}
-    .btn:hover{background:#e95522}.hero-art{min-height:300px;border-radius:30px;background:radial-gradient(circle at 50% 40%,#ffcc8c,#ff8b50 55%,#d84a22);display:grid;place-items:center;font-size:clamp(7rem,18vw,13rem);box-shadow:0 20px 45px #e77b4c44}
-    section{padding:62px 7%}.section-head{text-align:center;margin-bottom:30px}.section-head h2{font-size:2.2rem}.section-head p{color:var(--muted)}
-    .menu{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .item{background:white;border-radius:20px;overflow:hidden;box-shadow:0 8px 25px #0000000b}
-    .food-pic{height:175px;display:grid;place-items:center;font-size:5rem;background:#ffe6d8}
-    .item:nth-child(2) .food-pic,.item:nth-child(5) .food-pic{background:#fff0c9}
-    .item:nth-child(3) .food-pic,.item:nth-child(6) .food-pic{background:#e5f0df}
-    .item-info{padding:18px}.item-info h3{font-size:1.15rem}.item-info p{color:var(--muted);font-size:.9rem;margin:5px 0 14px;min-height:40px}
-    .item-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-weight:900;color:var(--orange)}
-    .add{border:0;background:var(--dark);color:white;padding:9px 14px;border-radius:20px;cursor:pointer;font-weight:700}.add:hover{background:var(--orange)}
-    .about{background:#171717;color:white;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
-    .about p{color:#ccc;margin-top:12px}.about-mark{font-size:8rem;text-align:center}
-    .contact{text-align:center}.contact p{color:var(--muted);margin:8px 0 20px}
-    footer{background:#111;color:#bbb;text-align:center;padding:22px;font-size:.9rem}
-    .cartbar{position:fixed;right:18px;bottom:18px;background:var(--dark);color:white;padding:13px 18px;border-radius:30px;box-shadow:0 8px 25px #0003;z-index:8}
-    .cartbar button{border:0;background:none;color:white;font-weight:800;cursor:pointer}
-    @media(max-width:750px){header{padding:15px 5%;flex-wrap:wrap}nav{gap:14px;font-size:.85rem}.hero{grid-template-columns:1fr;padding:55px 6%}.hero-art{min-height:210px}.menu{grid-template-columns:repeat(2,1fr)}.about{grid-template-columns:1fr}.about-mark{display:none}}
-    @media(max-width:480px){nav{width:100%;justify-content:space-between}.menu{grid-template-columns:1fr}section{padding:48px 6%}.section-head h2{font-size:1.8rem}}
-  </style>
-
-<style id="brownie-theme">
-:root{--dark:#24130d;--orange:#b87942;--cream:#f4e6d5;--muted:#cbb9a6}
-body{background:#1b0d08;color:#fff1e3}
-header{background:#170904;color:#fff1e3;border-bottom:1px solid #765033}
-.logo span{color:#d9a36d}
-.hero{background:linear-gradient(90deg,rgba(25,10,4,.94),rgba(45,20,9,.76)),radial-gradient(circle at 80% 30%,#8c4924,#1b0d08 65%);color:#fff1e3}
-.hero p{color:#e0cbbb}
-.hero-art{background:linear-gradient(145deg,#6c351c,#2a1008);box-shadow:0 20px 45px #0008}
-section{background:transparent}
-.section-head p{color:#d3bca8}
-.item{background:#f7eadc;color:#2b160d;box-shadow:0 8px 25px #0005}
-.food-pic{background:linear-gradient(145deg,#f8e8d5,#dfb990)}
-.item:nth-child(2) .food-pic,.item:nth-child(5) .food-pic{background:linear-gradient(145deg,#f8e8d5,#d9ad7e)}
-.item:nth-child(3) .food-pic,.item:nth-child(6) .food-pic{background:linear-gradient(145deg,#f8e8d5,#c99366)}
-.item-info p{color:#765d4d}
-.price{color:#8a4a25}
-.add{background:#512713;color:#fff1e3}
-.add:hover,.btn:hover{background:#9b5a2e}
-.btn{background:#c18a56;color:#24130d}
-.about{background:#2a130a;color:#fff1e3}
-.about p{color:#dbc5b3}
-.contact{color:#fff1e3}
-.contact p{color:#d3bca8}
-footer{background:#130803;color:#d3bca8}
-.cartbar{background:#f1d3b1;color:#2b160d}
-.cartbar button{color:#2b160d}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AK Bakes - Brownies & Cakes</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#fff7f0;padding-bottom:20px}
+header{background:#2b1200;color:#fff;text-align:center;padding:24px 10px 18px;position:relative}
+header h1{font-size:42px;font-weight:900;letter-spacing:1px}
+header h1 span{color:#ff8c42}
+header p{letter-spacing:3px;color:#ffccaa;font-size:13px;margin-top:5px}
+#adminBtn{position:absolute;top:15px;right:12px;background:#4a2400;color:#fff;border:none;padding:7px 13px;border-radius:20px;cursor:pointer}
+.search-box{padding:14px}
+.search-box input{width:100%;padding:14px 18px;border-radius:25px;border:1px solid #ffd9c0;font-size:16px;outline:none}
+.filter{display:flex;gap:8px;padding:0 14px 12px}
+.filter button{flex:1;padding:11px;border:none;border-radius:20px;font-weight:900;cursor:pointer;background:#ffe8d6}
+.filter button.active{background:#2b1200;color:#fff}
+h2{padding:0 14px;font-size:26px;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08)}
+.card img{width:100%;height:200px;object-fit:cover}
+.card-body{padding:12px}
+.card-body h3{font-size:17px;line-height:1.2;min-height:42px}
+.card-body p{color:#999;margin:6px 0;font-size:13px}
+.badge{background:#ff8c42;color:#fff;font-size:11px;padding:3px 8px;border-radius:10px}
+.price{font-size:22px;font-weight:900;margin:6px 0 10px}
+.whatsapp{background:#22c55e;color:#fff;border:none;width:100%;padding:12px;border-radius:12px;font-weight:900;font-size:14px;cursor:pointer;margin-bottom:8px}
+.row{display:flex;gap:8px}
+.edit{flex:1;background:#ff9800;color:#fff;border:none;padding:11px;border-radius:10px;font-weight:900;cursor:pointer}
+.delete{flex:1;background:#ff2222;color:#fff;border:none;padding:11px;border-radius:10px;font-weight:900;cursor:pointer}
+footer{background:#2b1200;color:#fff;text-align:center;padding:22px 12px;margin-top:20px;line-height:1.7}
+footer b{color:#22c55e}
+#adminPanel{display:none;background:#fff;margin:12px;padding:15px;border-radius:15px;border:1px solid #ffd9c0}
+#adminPanel input,#adminPanel select{width:100%;padding:12px;margin:6px 0;border:1px solid #ddd;border-radius:10px}
+#adminPanel button{width:100%;padding:13px;background:#2b1200;color:#fff;border:none;border-radius:10px;font-weight:900;margin-top:8px}
 </style>
-
 </head>
 <body>
-  <header>
-    <a class="logo" href="#">Foodie<span>Hub.</span></a>
-    <nav><a href="#home">Home</a><a href="#menu">Our Menu</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-      <div>
-        <div class="eyebrow">Fresh • Tasty • Made with love</div>
-        <h1>Good food.<br><span>Good mood.</span></h1>
-        <p>Craving something delicious? Explore our favourites, add your picks to the cart and send your order directly to us.</p>
-        <a class="btn" href="#menu">Explore Menu</a>
-      </div>
-      <div class="hero-art" aria-label="Burger illustration">🍔</div>
-    </section>
+<header>
+<button id="adminBtn" onclick="checkAdmin()">⚙️ Admin</button>
+<h1>AK <span>BAKES</span></h1>
+<p>FRESH • SOFT • CHOCOLATY</p>
+</header>
 
-    <section id="menu">
-      <div class="section-head"><div class="eyebrow">What we're serving</div><h2>Our Popular Menu</h2><p>Freshly prepared favourites for every craving.</p></div>
-      <div class="menu">
-        <article class="item"><div class="food-pic">🍔</div><div class="item-info"><h3>Classic Beef Burger</h3><p>Juicy patty, fresh lettuce and our special sauce.</p><div class="item-bottom"><span class="price">Rs. 650</span><button class="add" onclick="addItem('Classic Beef Burger',650)">Add +</button></div></div></article>
-        <article class="item"><div class="food-pic">🍕</div><div class="item-info"><h3>Cheese Pizza</h3><p>Golden crust loaded with cheese and flavour.</p><div class="item-bottom"><span class="price">Rs. 1,100</span><button class="add" onclick="addItem('Cheese Pizza',1100)">Add +</button></div></div></article>
-        <article class="item"><div class="food-pic">🍟</div><div class="item-info"><h3>Crispy Fries</h3><p>Hot, crispy fries with a tasty seasoning.</p><div class="item-bottom"><span class="price">Rs. 300</span><button class="add" onclick="addItem('Crispy Fries',300)">Add +</button></div></div></article>
-        <article class="item"><div class="food-pic">🥪</div><div class="item-info"><h3>Club Sandwich</h3><p>A filling sandwich with fresh, crunchy layers.</p><div class="item-bottom"><span class="price">Rs. 550</span><button class="add" onclick="addItem('Club Sandwich',550)">Add +</button></div></div></article>
-        <article class="item"><div class="food-pic">🍗</div><div class="item-info"><h3>Chicken Wings</h3><p>Flavourful wings served with a house dip.</p><div class="item-bottom"><span class="price">Rs. 700</span><button class="add" onclick="addItem('Chicken Wings',700)">Add +</button></div></div></article>
-        <article class="item"><div class="food-pic">🥤</div><div class="item-info"><h3>Chilled Drink</h3><p>A refreshing cold drink to complete your meal.</p><div class="item-bottom"><span class="price">Rs. 180</span><button class="add" onclick="addItem('Chilled Drink',180)">Add +</button></div></div></article>
-      </div>
-    </section>
+<div id="adminPanel">
+<h3>➕ Naya Item Add Karein</h3>
+<input id="pName" placeholder="Naam - Jaise Fudge Brownie">
+<select id="pCat"><option value="Brownie">Brownie</option><option value="Cake">Cake</option></select>
+<input id="pPrice" type="number" placeholder="Price - 499">
+<input id="pImg" placeholder="Image Link Paste Karein">
+<button onclick="addProduct()">✅ ADD ITEM</button>
+<button onclick="document.getElementById('adminPanel').style.display='none'" style="background:#777">Band Karein</button>
+</div>
 
-    <section class="about" id="about">
-      <div><div class="eyebrow">A little about us</div><h2>Made fresh.<br>Served with a smile.</h2><p>At Foodie Hub, we believe great food brings people together. Choose your favourites and let us make your day a little tastier.</p></div>
-      <div class="about-mark">👨‍🍳</div>
-    </section>
+<div class="search-box">
+<input id="search" oninput="render()" placeholder="🔍 Search - Brownie, Cake...">
+</div>
 
-    <section class="contact" id="contact">
-      <div class="eyebrow">Let's get your order started</div><h2>Hungry? We're ready!</h2>
-      <p>Build your cart and send your order through WhatsApp.</p>
-      <button class="btn" onclick="checkout()">Order on WhatsApp</button>
-    </section>
-  </main>
-  <div class="cartbar"><button onclick="showCart()">🛒 Cart: <span id="count">0</span> items · Rs. <span id="total">0</span></button></div>
-  <footer>© 2026 Foodie Hub. All rights reserved.</footer>
+<div class="filter">
+<button id="btnAll" class="active" onclick="setFilter('All')">All</button>
+<button id="btnBrownie" onclick="setFilter('Brownie')">🍫 Brownie</button>
+<button id="btnCake" onclick="setFilter('Cake')">🎂 Cake</button>
+</div>
 
-  <script>
-    const cart = [];
-    // Replace this with your WhatsApp number including country code, without + or spaces.
-    const WHATSAPP_NUMBER = "923001234567";
-    function addItem(name, price){cart.push({name,price});updateCart();}
-    function updateCart(){
-      document.getElementById('count').textContent=cart.length;
-      document.getElementById('total').textContent=cart.reduce((sum,item)=>sum+item.price,0).toLocaleString('en-PK');
-    }
-    function showCart(){
-      if(!cart.length){alert('Your cart is empty. Add something from the menu!');return;}
-      const lines=cart.map((x,i)=>`${i+1}. ${x.name} - Rs. ${x.price}`).join('\n');
-      alert(`Your order:\n${lines}\n\nTotal: Rs. ${cart.reduce((s,x)=>s+x.price,0)}`);
-    }
-    function checkout(){
-      if(!cart.length){alert('Please add items to your cart first.');return;}
-      const total=cart.reduce((s,x)=>s+x.price,0);
-      const lines=cart.map(x=>`• ${x.name} - Rs. ${x.price}`).join('\n');
-      const message=`Hello! I want to place an order:\n${lines}\nTotal: Rs. ${total}\n\nName:\nDelivery address:`;
-      if(WHATSAPP_NUMBER==="923001234567"){alert('First replace the demo WhatsApp number in the code with your own number.');return;}
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`,'_blank');
-    }
-  </script>
+<h2>🍫 Our Menu</h2>
+<div class="grid" id="products"></div>
+
+<footer>
+<p>© 2026 AK Bakes | Lahore, Pakistan</p>
+<p>Freshly Baked Daily • Home Delivery Available 🚚</p>
+<p>Order On WhatsApp: <b>0326 4580349</b></p>
+</footer>
+
+<script>
+let WHATSAPP = "923264580349";
+let filter = 'All';
+let products = JSON.parse(localStorage.getItem('ak_bakes') || 'null') || [
+ {name:"Classic Fudge Brownie", cat:"Brownie", price:499, img:"https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=600"},
+ {name:"Nutella Loaded Brownie", cat:"Brownie", price:699, img:"https://images.unsplash.com/photo-1589375020261-2a6c8c1b1b1b?w=600"},
+ {name:"Chocolate Chip Brownie", cat:"Brownie", price:599, img:"https://images.unsplash.com/photo-1618923850107-d1a234d7a73a?w=600"},
+ {name:"Lotus Biscoff Brownie", cat:"Brownie", price:799, img:"https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=600"},
+ {name:"Chocolate Fudge Cake - 1 Pound", cat:"Cake", price:1499, img:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600"},
+ {name:"Lotus Cake - 1 Pound", cat:"Cake", price:1899, img:"https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600"},
+ {name:"Red Velvet Cake - 1 Pound", cat:"Cake", price:1799, img:"https://images.unsplash.com/photo-1586788680434-30d324b2d46f?w=600"},
+ {name:"Birthday Special Cake - 2 Pound", cat:"Cake", price:2999, img:"https://images.unsplash.com/photo-1535141192574-5d4897c12636?w=600"}
+];
+function save(){ localStorage.setItem('ak_bakes', JSON.stringify(products)); render(); }
+function setFilter(f){
+ filter=f;
+ document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
+ if(f==='All') document.getElementById('btnAll').classList.add('active');
+ if(f==='Brownie') document.getElementById('btnBrownie').classList.add('active');
+ if(f==='Cake') document.getElementById('btnCake').classList.add('active');
+ render();
+}
+function render(){
+ let q = document.getElementById('search').value.toLowerCase();
+ let box = document.getElementById('products');
+ let list = products.filter(p => (filter==='All' || p.cat===filter) && (p.name.toLowerCase().includes(q) || p.cat.toLowerCase().includes(q)));
+ box.innerHTML = list.map(p=>{
+   let realIndex = products.indexOf(p);
+   return `<div class="card">
+     <img src="${p.img}" onerror="this.src='https://via.placeholder.com/400x400?text=AK+Bakes'">
+     <div class="card-body">
+       <span class="badge">${p.cat}</span>
+       <h3 style="margin-top:6px">${p.name}</h3>
+       <p>Freshly Baked • Lahore</p>
+       <div class="price">Rs. ${p.price}</div>
+       <button class="whatsapp" onclick="order('${p.name}',${p.price})">🟢 ORDER ON WHATSAPP</button>
+       <div class="row">
+         <button class="edit" onclick="editProduct(${realIndex})">✏️ EDIT</button>
+         <button class="delete" onclick="deleteProduct(${realIndex})">🗑️ DELETE</button>
+       </div>
+     </div>
+   </div>`
+ }).join('');
+}
+function order(name, price){
+ let msg = `Assalam-o-Alaikum AK Bakes! Mujhe ye order karna hai:%0A%0AItem: ${name}%0APrice: Rs. ${price}%0A%0AName:%0AAddress:%0ACity: Lahore`;
+ window.open(`https://wa.me/${WHATSAPP}?text=${msg}`, '_blank');
+}
+function checkAdmin(){
+ let pass = prompt("Admin Password Dalein:");
+ if(pass === "ak123"){ document.getElementById('adminPanel').style.display='block'; alert("Welcome Admin!"); }
+ else alert("Galat Password!");
+}
+function addProduct(){
+ let n=document.getElementById('pName').value, c=document.getElementById('pCat').value, pr=document.getElementById('pPrice').value, im=document.getElementById('pImg').value;
+ if(!n || !pr){ alert("Naam aur Price zaroori hai"); return; }
+ products.unshift({name:n, cat:c, price:pr, img:im||"https://via.placeholder.com/400x400?text=AK+Bakes"});
+ save(); alert("Item Add Ho Gaya!");
+}
+function editProduct(i){
+ let p = products[i];
+ let newPrice = prompt("Nayi Price Dalein:", p.price);
+ if(newPrice) { p.price = newPrice; save(); }
+}
+function deleteProduct(i){
+ if(confirm("Kya Aap isko delete karna chahte hain?")){ products.splice(i,1); save(); }
+}
+render();
+</script>
 </body>
 </html>
